@@ -22,9 +22,9 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue';
 import { useTheme } from 'vuetify';
-import AlertContainer from './components/AlertContainer.vue';
-import ButtonContainer from './components/ButtonContainer.vue';
-import ColorGuide from './components/ColorGuide.vue';
+import AlertContainer from './containers/AlertContainer.vue';
+import ButtonContainer from './containers/ButtonContainer.vue';
+import ColorGuide from './containers/ColorGuide.vue';
 
 const theme = useTheme();
 const darkTheme = ref(true);
