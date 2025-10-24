@@ -1,11 +1,20 @@
 <template>
   <v-app>
   <v-app-bar>
+    <template v-slot:prepend>
+      <v-app-bar-nav-icon></v-app-bar-nav-icon>
+    </template>
+
+    <v-app-bar-title>Design System Usage Guide</v-app-bar-title>
     <v-icon icon="mdi-weather-sunny" color="primary"></v-icon>
     <v-switch color="primary" v-model="darkTheme" hide-details></v-switch>
     <v-icon icon="mdi-weather-night" color="primary"></v-icon>
   </v-app-bar>
-  <v-main></v-main>
+  <v-main>
+    <AlertContainer></AlertContainer>
+    <ButtonContainer></ButtonContainer>
+    <ColorGuide></ColorGuide>
+  </v-main>
   </v-app>
 
 </template>
@@ -13,6 +22,9 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue';
 import { useTheme } from 'vuetify';
+import AlertContainer from './components/AlertContainer.vue';
+import ButtonContainer from './components/ButtonContainer.vue';
+import ColorGuide from './components/ColorGuide.vue';
 
 const theme = useTheme();
 const darkTheme = ref(true);
@@ -24,16 +36,4 @@ watch(darkTheme, (newVal) => {
 </script>
 
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
 </style>
